@@ -1,62 +1,49 @@
- <html>
-    <head>
-    <script language="javascript">
-    var intval=""
-    function start_Int()
-    {
-            if(intval=="")
-            {
-                    intval=window.setInterval("start_clock()",1000);
-            }
-            else
-            {
-                    stop_Int();
-            }
-    }
-    
-    function stop_Int()
-    {
-            if(intval!="")
-            {
-                    window.clearInterval(intval);
-                    intval="";
-                    document.formu.tiempo.value="Tiempo detenido";
-            }
-    }
-    
-    function start_clock()
-    {
-            var d=new Date(); // Creamos una variable "d" de tipo "Date".
-            var sw="am";
-            var h=d.getHours(); // Asignamos a "h" la horas obtenidas de "d".
-            var m=d.getMinutes() + "";
-            var s=d.getSeconds() + "";
-            if(h>12)
-            {
-                    h-=12;
-                    sw="pm";
-            }
-            if(m.length==1)
-            {
-                    m="0" + m;
-            }
-            if(s.length==1)
-            {
-                    s="0" + s;
-            }
-            document.formu.tiempo.value=h + ":" + m + ":" + s + " " + sw;
-    }
-    </script>
-    </head>
-    
-    <body>
-    <form id="formu" name="formu">
-    <input type="text" name="tiempo" value="Tiempo parado">
-    </form>
-    <input type="button" value="Empezar" onclick="start_Int()">
-    <input type="button" value="Parar" onclick="stop_Int()">
-    &lt;p&gt;Este ejemplo actualiza el contenido del cuadro de texto cada segundo. 
-    Pulsa "Empezar" para iniciar la función setInterval. Pulsa "Parar" para detener el 
-    tiempo con la función clearInterval.&lt;/p&gt;
-    </body>
-    </html>
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Calculadora</title> 
+<link rel="stylesheet" type="text/css" href="calculadora.css" />
+<script type="text/javascript" src="calculadora.js"></script>
+</head>
+<body>
+<div class="calculadora"
+<form action="#" name="calculadora" id="calculadora">
+<p id="textoPantalla">0</p>
+<p>
+<input type="button" class="largo" value="Retr" onclick="retro()"   />
+<input type="button" class="largo" value="CE" onclick="borradoParcial()"  />
+<input type="button" class="largo" value="C" onclick="borradoTotal()"  />
+</p>
+<p>
+<input type="button" value="7" onclick="numero(7)" />
+<input type="button" value="8" onclick="numero('8')" />
+<input type="button" value="9" onclick="numero('9')" />
+<input type="button" value="/" onclick="operar('/')"  />
+<input type="button" value="Raiz" onclick="raizc()" />
+</p>
+<p>
+<input type="button" value="4" onclick="numero('4')" />
+<input type="button" value="5" onclick="numero('5')" />
+<input type="button" value="6" onclick="numero('6')" />
+<input type="button" value="*" onclick="operar('*')" />
+<input type="button" value="%" onclick="porcent()" />
+</p>
+<p>
+<input type="button" value="1" onclick="numero('1')" />
+<input type="button" value="2" onclick="numero('2')" />
+<input type="button" value="3" onclick="numero('3')" />
+<input type="button" value="-" onclick="operar('-')" />
+<input type="button" value="1/x" onclick="inve()" />
+</p>
+<p>
+<input type="button" value="0" onclick="numero('0')" />
+<input type="button" value="+/-" onclick="opuest()" />
+<input type="button" value="." onclick="numero('.')" />
+<input type="button" value="+" onclick="operar('+')" />
+<input type="button" value="=" onclick="igualar()" />
+</p>
+</form>
+</div>
+</body>
+</html>
